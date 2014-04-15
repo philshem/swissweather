@@ -3,7 +3,8 @@ swissweather
 
 Historical monthly averages (1864-present) of temperature and precipitation at weather stations across Switzerland. All data is from [MeteoSwiss](http://www.meteoswiss.admin.ch/web/en.html) and [their license](http://www.meteoswiss.admin.ch/web/en/legal.html) applies to its usage. I have only combined and transformed the data so it is more code-friendly.
 
-[Data source](http://www.meteoswiss.admin.ch/web/en/climate/climate_today/homogeneous_data.html)
+ + [Data source](http://www.meteoswiss.admin.ch/web/en/climate/climate_today/homogeneous_data.html)
+ + [Measurement details](http://www.meteoswiss.admin.ch/web/de/klima/klima_heute/homogene_reihen.Par.0054.DownloadFile.tmp/vergleichoriginalhomogen.pdf) (PDF, German)
 
 
 Station code  | Station name
