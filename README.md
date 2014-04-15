@@ -1,7 +1,7 @@
 swissweather
 ============
 
-Historical monthly averages (1864-present) of temperature and precipitation at weather stations across Switzerland. All data is from [MeteoSwiss](http://www.meteoswiss.admin.ch/web/en.html) and [their license](http://www.meteoswiss.admin.ch/web/en/legal.html) applies to its usage.
+Historical monthly averages (1864-present) of temperature and precipitation at weather stations across Switzerland. All data is from [MeteoSwiss](http://www.meteoswiss.admin.ch/web/en.html) and [their license](http://www.meteoswiss.admin.ch/web/en/legal.html) applies to its usage. I have only combined and transformed the data so it is more code-friendly.
 
 [Data source](http://www.meteoswiss.admin.ch/web/en/climate/climate_today/homogeneous_data.html)
 
