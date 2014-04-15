@@ -10,17 +10,14 @@ for station in meteoswiss:
 		temps = meteoswiss[station]['temp']
 		for key,value in temps.iteritems():
 			month = key.split('-')[-1]
-			if month == '06':
+			if month == '06': # only June
 				yearlist.append(key.split('-')[0])
 				templist.append(value)
-#				print year,temp,month
 
 import matplotlib.pyplot as plt
 plt.plot(yearlist,templist,'ro')
-
 plt.xlabel('Year')
 plt.ylabel('Temperature (C)')
 plt.title('Average June Temperature in Zurich')
 plt.grid(True)
 plt.show()
-#print temps
