@@ -1,7 +1,7 @@
 swissweather
 ============
 
-Historical monthly averages (1864-present) of temperature and precipitation at several in Switzerland. All data is from MeteoSwiss and their license applies to its usage.
+Historical monthly averages (1864-present) of temperature and precipitation at weather stations across Switzerland. All data is from MeteoSwiss and their license applies to its usage.
 
 Data source: http://www.meteoswiss.admin.ch/web/en/climate/climate_today/homogeneous_data.html
 Data license: http://www.meteoswiss.admin.ch/web/en/legal.html
