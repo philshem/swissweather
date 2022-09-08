@@ -9,12 +9,12 @@ stationlist = ['BER','BAS','CHM','CHD','GSB', \
 
 #stationlist = ['SMA'] # debugging
 
-urlbase = 'http://www.meteoswiss.admin.ch/files/kd/homogreihen/homog_mo_'
+urlbase = 'https://www.meteoswiss.admin.ch/product/output/climate-data/homogenous-monthly-data-processing/data/homog_mo_{}.txt'
 
 data = defaultdict(dict)
 
 for station_code in stationlist:
-	url = urlbase + station_code +'.txt'
+	url = urlbase.format(station_code)
 	resp = requests.get(url=url)
 
 	tosave = 'homog_mo_'+station_code+'.txt'
@@ -24,10 +24,11 @@ for station_code in stationlist:
 	#print resp.encoding
 
 	temp = resp.text
-	temp = temp.encode('utf-8').split('\r\n')
+	temp = temp.split('\r\n')
 	temp = [x.strip() for x in temp]
+
 	station_name = temp[5].split(':')[-1].strip()
-	print station_code, ':', station_name
+	print(station_code, ':', station_name)
 
 	data[station_code].update({ 'source_url' : url }) # source URL
 	data[station_code].update({ 'station_name' : station_name }) # full name of station
@@ -43,23 +44,21 @@ for station_code in stationlist:
 
 	header = temp[27].split()
 	header = [x.strip() for x in header]
-	#print header
+	#print(header)
 
 	data[station_code]['temp'] = {}
 	data[station_code]['precip'] = {}
 
-	for i in xrange(28,len(temp)):
+	for i in range(28,len(temp)):
 		row = temp[i].split()
 		row = [x.strip() for x in row]
-		for j in xrange(len(row)):
+		for j in range(len(row)):
 			datekey = '-'.join((row[0],row[1].zfill(2))) # padded month (i.e. 2014-04)
 			data[station_code]['temp'][datekey] = row[2]
 			data[station_code]['precip'][datekey] = row[3]
 
-with open('meteoswiss.json','wb') as outfile:
-	json.dump(data,outfile,indent=4,encoding='utf-8',ensure_ascii=False)
+with open('meteoswiss.json','w') as outfile:
+	json.dump(data,outfile,indent=4, ensure_ascii=False)
 
-with open('meteoswiss.py','wb') as outfile:
-	outfile.write('# -*- coding: UTF-8 -*-\n')
-	outfile.write('meteoswiss = '+json.dumps(data,encoding='utf-8', ensure_ascii=False)+'\n')
-	#json.dump(data,out,indent=4,encoding='utf-8',ensure_ascii=False)
+with open('meteoswiss.py','w') as outfile:
+	outfile.write('meteoswiss = '+json.dumps(data, ensure_ascii=False, indent=4)+'\n')
